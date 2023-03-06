@@ -1,0 +1,12 @@
+<div>
+    <p-toast></p-toast>
+    <p-card header="Players" styleClass="w-full h-full">
+        <ng-template pTemplate="header">
+            <button *ngIf="!hasJoined"  pButton type="button" label="Join" style="float:right;margin:5px;" (click)="joinGame()"></button>
+        </ng-template>
+
+        <div *ngFor="let player of players">
+            <p-chip label="{{player.Name}}" image="{{player.PhotoUrl}}"></p-chip>
+        </div>
+    </p-card>
+</div>

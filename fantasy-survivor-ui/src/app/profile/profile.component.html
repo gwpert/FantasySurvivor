@@ -1,0 +1,17 @@
+
+<p-toast></p-toast>
+<div *ngIf="profile" class="card p-3" >
+    <div class="flex flex-column card-container">
+        <div class="flex align-items-center justify-content-center h-4rem  font-bold text-white border-round m-2"><div class="pr-1">GM</div><p-inputSwitch [(ngModel)]="isGM" (onChange)="updateAdmin($event)" ></p-inputSwitch></div>
+        <div class="flex align-items-center justify-content-center h-4rem font-bold text-white border-round m-2">
+            <form [formGroup]="profileForm">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText formControlName="displayName" [readonly]="true"> 
+                </span>
+               
+            </form></div>
+    </div>
+</div>
+<div *ngIf="!profile">
+    Profile has not been created.
+</div>

@@ -7,7 +7,7 @@ import { FSUser } from './User';
   providedIn: 'root'
 })
 export class AuthService {
-  public user = <FSUser>{};
+  public user = <any>{};
   constructor(private firebaseService: FirebaseService, private router: Router) {
     
       this.user = JSON.parse(localStorage.getItem('fst')!);
@@ -15,7 +15,7 @@ export class AuthService {
 
   public login(loginResult: UserCredential){
     const userCredential =  GoogleAuthProvider.credentialFromResult(loginResult)!;
-    this.user = <FSUser>{
+    this.user = <any>{
       DisplayName: loginResult.user.displayName,
       AvatarURL: loginResult.user.photoURL
     }

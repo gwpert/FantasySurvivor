@@ -1,0 +1,16 @@
+<div class="p-3">
+    <div class="grid" *ngFor="let survivor of survivors">
+        <div class="col">
+          <p-chip
+            label="{{ survivor.Name }}"
+            image="assets\images\{{ survivor.ImageRef }}"
+            styleClass="bg-primary"
+          ></p-chip>
+          <div style="float:right;">
+            <p-inputSwitch [(ngModel)]="survivor.IsVotedOut" [disabled]="authService.user.IsGM"></p-inputSwitch>
+          </div>
+         
+        </div>
+      </div>
+</div>
+

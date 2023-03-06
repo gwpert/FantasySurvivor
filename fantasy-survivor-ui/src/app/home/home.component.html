@@ -1,18 +1,13 @@
 
-<p-menubar [model]="items" styleClass="mb-3">
-    <ng-template pTemplate="start">
-        <img src="{{this.authService.user.AvatarURL}}" height="50" class="mr-2">
-    </ng-template>
-    <ng-template pTemplate="end">
-        <button #btn type="button" pButton class="bg-primary-reverse text-color-secondary"  icon="pi pi-fw pi-power-off" label="Logout" (click)="logout()"></button>
-    </ng-template>
-</p-menubar>
-<p-card header="Players" styleClass="w-6 h-20rem">
-    <ng-template pTemplate="header" >
-        <button pButton type="button" label="Join"  style="float:right;margin:5px;" (click)="joinGame()"></button>
-    </ng-template>
-       
-    <div *ngFor="let player of players" class="w-full">
-       <div > <img src="{{player.PhotoUrl}}" height="30" class="mr-2"> <p style="padding-bottom:10px;">( {{player.Name}} )</p></div>
-    </div>
-</p-card>
+<p-menubar [model]="items" styleClass="mb-3"></p-menubar>
+
+<div *ngIf="seletedMenuItem === 'players'">
+    <app-players></app-players>
+</div>
+<div *ngIf="seletedMenuItem === 'profile'">
+    <app-profile></app-profile>
+</div>
+<div *ngIf="seletedMenuItem === 'survivors'">
+    <app-survivors></app-survivors>
+</div>
+
